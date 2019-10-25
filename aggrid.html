@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="https://unpkg.com/ag-grid-enterprise@15.0.0/dist/ag-grid-enterprise.js"></script>
-  <link rel="stylesheet" href="https://unpkg.com/ag-grid/dist/styles/ag-grid.css">
-  <link rel="stylesheet" href="https://unpkg.com/ag-grid/dist/styles/ag-theme-balham.css">
+  <!-- <script src="https://unpkg.com/ag-grid-enterprise@15.0.0/dist/ag-grid-enterprise.js"></script> -->
+  <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
+  <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-balham.css">
 </head>
 <body>
   <h1>Hello from ag-grid!</h1>
@@ -13,7 +14,7 @@
   <script type="text/javascript" charset="utf-8">
     // specify the columns
     var columnDefs = [
-      {headerName: "Make", field: "make", rowGroupIndex: 0 },
+      {headerName: "Make", field: "make", /** rowGroupIndex: 0 */ },
       {
           headerName: "Price",
           field: "price",
@@ -47,10 +48,12 @@
     
     // let the grid know which columns and what data to use
     var gridOptions = {
+      defaultColDef: {
+        sortable: true,
+        filter: true,
+      },
       columnDefs: columnDefs,
       rowData: rowData,
-      enableSorting: true,
-      enableFilter: true,
       autoGroupColumnDef: autoGroupColumnDef,
       groupSelectsChildren: true,
       rowSelection: 'multiple'
